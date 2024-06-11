@@ -1,0 +1,11 @@
+scipy==1.1.0
+streamlit
+tensorflow
+numpy
+pandas
+keras
+imageio
+pathlib
+matplotlib
+tensorflow_hub
+pillow
