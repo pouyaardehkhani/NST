@@ -91,8 +91,8 @@ def preprocess_image(image):
 
 col1,col2 = st.columns(2)
 
-content_image = col1.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
-style_image = col2.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+content_image = col1.file_uploader("Upload a content image", type=["png", "jpg", "jpeg"])
+style_image = col2.file_uploader("Upload a style image", type=["png", "jpg", "jpeg"])
 
 @st.cache_resource
 def vgg_model(layer_names):
