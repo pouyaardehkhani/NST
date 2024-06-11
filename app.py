@@ -155,20 +155,33 @@ def inception_model(layer_names):
 
 model_selection = st.radio('Choose Model', ('VGG16', 'InceptionV3'))
 
+global model
+global content_and_style_layers
+global style_layers
+global content_layer
+
 # Function to display the selected model options
 @st.cache_data
 def display_model_options(model):
   if model == 'VGG16':
+    global model
+    global content_and_style_layers
+    global style_layers
+    global content_layer
     style_layers = st.multiselect('Select Style Layers', ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1', 'block5_conv1'])
     content_layer = st.selectbox('Select Content Layer', ['block5_conv2', 'block5_conv3'])
-    global content_and_style_layers = style_layers + [content_layer]
-    global model = vgg_model(content_and_style_layers)
+    content_and_style_layers = style_layers + [content_layer]
+    model = vgg_model(content_and_style_layers)
         
   elif model == 'InceptionV3':
+    global model
+    global content_and_style_layers
+    global style_layers
+    global content_layer
     style_layers = st.multiselect('Select Style Layers', ['mixed3', 'mixed4', 'mixed5', 'mixed6', 'mixed7'])
     content_layer = st.selectbox('Select Content Layer', ['mixed10'])
-    global content_and_style_layers = style_layers + [content_layer]
-    global model = inception_model(content_and_style_layers)
+    content_and_style_layers = style_layers + [content_layer]
+    model = inception_model(content_and_style_layers)
 
 display_model_options(model_selection)
   
