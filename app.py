@@ -167,6 +167,7 @@ def display_model_options(model):
     style_layers = st.multiselect('Select Style Layers', ['block1_conv1', 'block2_conv1', 'block3_conv1', 'block4_conv1', 'block5_conv1'])
     content_layer = st.selectbox('Select Content Layer', ['block5_conv2', 'block5_conv3'])
     content_and_style_layers = style_layers + [content_layer]
+    st.write(content_and_style_layers)
         
   elif model == 'InceptionV3':
     style_layers = st.multiselect('Select Style Layers', ['mixed3', 'mixed4', 'mixed5', 'mixed6', 'mixed7'])
